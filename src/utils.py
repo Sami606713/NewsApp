@@ -22,7 +22,7 @@ def get_image(response,index):
     return response[index]['urlToImage']
 
 def get_content(response,index):
-    return response[index]['content']
+    return response[index]['content'][:-13]
 
 def get_url(response,index):
-    return response[index]['content']
+    return response[index]['url']

@@ -1,6 +1,6 @@
 import streamlit as st
-import pandas as pd
-import requests
+# import pandas as pd
+# import requests
 from utils import get_data,get_title,get_description,get_image,get_content,get_url
 import webbrowser as wb
 
@@ -9,7 +9,11 @@ st.title("My News App⏳")
 
 # Get the data
 response=get_data()
-index=90
+
+# Set the index in session state
+if 'index' not in st.session_state:
+    st.session_state.index = 0
+
 
 main_container=st.container(border=True)
 def update_news(index):
@@ -46,17 +50,15 @@ def update_news(index):
                     url=get_url(response,index)
                     wb.open_new_tab(url=url)
 
-update_news(index)
-with st.container():
+
+update_news(st.session_state.index)
+with main_container:
     btn1,btn2=st.columns(2)
     with btn1:
         if(st.button("prev")):
-            index-=1
-            update_news(index)
+            st.session_state.index -= 1
+
     with btn2:
         if(st.button("Next")):
-            index= index+1
-            update_news(index)
-
-               
-                
+            st.session_state.index+=1
+    
