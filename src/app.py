@@ -4,8 +4,8 @@ import webbrowser as wb
 
 # Set teh page config
 st.set_page_config(
-    page_title="My News App",  # Set the page title
-    page_icon=":newspaper:",       # Set the favicon (you can use an emoji or a URL)
+    page_title="My News App",       # Set the page title
+    page_icon=":newspaper:",       # Set the favicon 
     layout="wide",                 # Set the layout ("wide" or "centered")
     initial_sidebar_state="auto"   # Set the initial sidebar state ("auto", "expanded", "collapsed")
 )
