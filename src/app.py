@@ -3,7 +3,7 @@ from utils import get_data,get_title,get_description,get_image,get_content,get_u
 import webbrowser as wb
 
 # Set the title
-st.title("My News App⏳")
+st.title("📰 My News App ⏳")
 
 # Get the data
 response=get_data()
@@ -20,8 +20,7 @@ def update_news(index):
             with st.columns(1)[0]:
                 image= get_image(response,index)
                 try:
-                    st.write("Image")
-                    st.image(image)
+                    st.image(image,caption="News Image")
                 except:
                     st.write("Image not found")
                 
@@ -29,19 +28,20 @@ def update_news(index):
         with st.container(border=True):
             with st.columns(1)[0]: 
                 title=get_title(response,index)
-                st.write(f"title:  {title}")
+                st.markdown(f"# {title}")
+                st.write(f"{title}")
         
         # Description
         with st.container(border=True):
             with st.columns(1)[0]:
                 desc=get_description(response,index)
-                st.write(f"description: {desc}")
+                st.markdown(f"### {desc}")
         
         # Content
         with st.container(border=True):
             with st.columns(1)[0]:
                 cont=get_content(response,index)
-                st.write(f"content: {cont}")
+                st.markdown(f"#### {cont}")
                 if(st.button("Read More")):
                     url=get_url(response,index)
                     wb.open_new_tab(url=url)
@@ -49,7 +49,7 @@ def update_news(index):
         with main_container:
             btn1,btn2=st.columns(2)
             with btn1:
-                if(st.button("prev")):
+                if(st.button("Prev")):
                     st.session_state.index -= 1
 
             with btn2:
