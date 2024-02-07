@@ -20,3 +20,9 @@ def get_description(response,index):
 
 def get_image(response,index):
     return response[index]['urlToImage']
+
+def get_content(response,index):
+    return response[index]['content']
+
+def get_url(response,index):
+    return response[index]['url']
