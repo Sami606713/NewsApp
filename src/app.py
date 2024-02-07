@@ -2,6 +2,15 @@ import streamlit as st
 from utils import get_data,get_title,get_description,get_image,get_content,get_url
 import webbrowser as wb
 
+# Set teh page config
+st.set_page_config(
+    page_title="My News App",  # Set the page title
+    page_icon=":newspaper:",       # Set the favicon (you can use an emoji or a URL)
+    layout="wide",                 # Set the layout ("wide" or "centered")
+    initial_sidebar_state="auto"   # Set the initial sidebar state ("auto", "expanded", "collapsed")
+)
+
+
 # Set the title
 st.title("📰 My News App ⏳")
 
@@ -12,9 +21,9 @@ response=get_data()
 if 'index' not in st.session_state:
     st.session_state.index = 0
 
-main_container=st.container(border=True)
+
 def update_news(index):
-    # main_container.empty()
+    main_container=st.container(border=True)
     with main_container:
         with st.container(border=True):
             with st.columns(1)[0]:
