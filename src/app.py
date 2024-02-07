@@ -53,7 +53,7 @@ def update_news(index):
                 st.markdown(f"#### {cont}")
                 if(st.button("Read More")):
                     url=get_url(response,index)
-                    wb.open_new_tab(url=url)
+                    wb.open(url=url)
 
         with main_container:
             btn1,btn2=st.columns(2)
