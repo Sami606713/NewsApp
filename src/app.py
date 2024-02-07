@@ -1,6 +1,4 @@
 import streamlit as st
-# import pandas as pd
-# import requests
 from utils import get_data,get_title,get_description,get_image,get_content,get_url
 import webbrowser as wb
 
@@ -14,11 +12,9 @@ response=get_data()
 if 'index' not in st.session_state:
     st.session_state.index = 0
 
-
 main_container=st.container(border=True)
 def update_news(index):
-    # main_container=st.container(border=True)
-    main_container.empty()
+    # main_container.empty()
     with main_container:
         with st.container(border=True):
             with st.columns(1)[0]:
@@ -50,15 +46,19 @@ def update_news(index):
                     url=get_url(response,index)
                     wb.open_new_tab(url=url)
 
+        with main_container:
+            btn1,btn2=st.columns(2)
+            with btn1:
+                if(st.button("prev")):
+                    st.session_state.index -= 1
 
+            with btn2:
+                if(st.button("Next")):
+                    st.session_state.index+=1
+        
+
+
+# Call the update news function
 update_news(st.session_state.index)
-with main_container:
-    btn1,btn2=st.columns(2)
-    with btn1:
-        if(st.button("prev")):
-            st.session_state.index -= 1
 
-    with btn2:
-        if(st.button("Next")):
-            st.session_state.index+=1
     
