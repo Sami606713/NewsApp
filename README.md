@@ -14,9 +14,9 @@ Welcome to My News App! This is a Streamlit-based web application that allows us
    ```bash
    git clone [https://github.com/Sami606713/NewsApp]
 
-
 ## Install the required dependencies:
-pip install -r requirements.txt
+    ```bash
+    pip install -r requirements.txt
 
 ## Usage
 streamlit run app.py
